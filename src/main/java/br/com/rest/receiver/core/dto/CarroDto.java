@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class CarroDto {
   private String cor;
 
-  private ModeloDto modelo;
+  private int idmodelo;
 
   private String placa;
 

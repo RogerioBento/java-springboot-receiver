@@ -1,10 +1,10 @@
 package br.com.rest.receiver.service;
 
-import br.com.rest.receiver.core.model.Carro;
+import br.com.rest.receiver.core.dto.CarroDto;
 
 public interface CarroService {
     
-    public void novoCarro(Carro Carro);
+    public void novoCarro(CarroDto Carro);
 
     public void buscarCarro(int id);
 
