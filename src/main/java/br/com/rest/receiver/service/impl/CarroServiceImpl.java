@@ -1,5 +1,7 @@
 package br.com.rest.receiver.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,19 +27,20 @@ public class CarroServiceImpl implements CarroService {
     }
 
     @Override
-    public void buscarCarro(int id) {
-
+    public Carro buscarCarro(int id) {
+        Optional<Carro> carro = carroRepository.findById(id);
+        return carro.isPresent()? carro.get() : null ;
     }
 
     @Override
     public void deletarCarro(int id) {
-
+        carroRepository.deleteById(id);
     }
 
     private Carro dtoToModel(CarroDto carroDto){
         return Carro.builder()
         .cor(carroDto.getCor())
-        .modelo(modeloRepository.findById(carroDto.getIdmodelo()).get())
+        .idmodelo(modeloRepository.findById(carroDto.getIdmodelo()).get())
         .valor(carroDto.getValor())
         .placa(carroDto.getPlaca()).build();
     }
