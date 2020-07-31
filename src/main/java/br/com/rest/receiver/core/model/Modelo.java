@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import lombok.AllArgsConstructor;
@@ -33,6 +35,7 @@ public class Modelo {
   private int idmodelo;
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "idmodelo",fetch = FetchType.LAZY)
+  @JsonIgnore
   private List<Carro> carroList;
 
   private String nome;
